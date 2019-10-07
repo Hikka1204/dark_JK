@@ -11,7 +11,7 @@ public class createfloor : MonoBehaviour {
 		for(int i = 0; i < 15; i++)
         {
             float positionX = (i * 1.57f) + floor.transform.position.x;
-            float positionY = transform.position.y;
+            float positionY = floor.transform.position.y;
             Instantiate(floor, new Vector2(positionX, positionY), Quaternion.identity);
         }
 	}
