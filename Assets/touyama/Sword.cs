@@ -56,7 +56,7 @@ public class Sword : MonoBehaviour {
 
     }
 
-
+    
 
 
     void OnTriggerEnter2D(Collider2D Collision)
