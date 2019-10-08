@@ -157,7 +157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &291116516
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 530364745}
   - component: {fileID: 530364744}
   - component: {fileID: 530364746}
+  - component: {fileID: 530364747}
   m_Layer: 0
   m_Name: katana
   m_TagString: Untagged
@@ -273,7 +274,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 131457043}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.122}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -19.983002}
 --- !u!61 &530364746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -299,6 +300,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 0.96}
   m_EdgeRadius: 0
+--- !u!114 &530364747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530364743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e13a80c0f69f3e4d966ca69a52a7178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 131457042}
+  SwordInitcount: 15
+  InitRotation: 45
+  SwordSpeed: 5
 --- !u!1 &1174950516
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +325,6 @@ GameObject:
   - component: {fileID: 1174950518}
   - component: {fileID: 1174950517}
   - component: {fileID: 1174950519}
-  - component: {fileID: 1174950520}
   - component: {fileID: 1174950521}
   - component: {fileID: 1174950522}
   m_Layer: 0
@@ -393,22 +408,6 @@ MonoBehaviour:
   JumpSpeed: 0
   JumpCount: 0
   Gensui: 0.95
---- !u!114 &1174950520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1174950516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e13a80c0f69f3e4d966ca69a52a7178, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sw: {fileID: 530364743}
-  obj: {fileID: 131457042}
-  SwordInitcount: 14
-  InitRotation: 45.03
-  SwordSpeed: 7.04
 --- !u!61 &1174950521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -670,6 +669,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1493457581029072, guid: 73317da70c7029045b9b84a9e9dcaee1, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212365812252551172, guid: 73317da70c7029045b9b84a9e9dcaee1,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212365812252551172, guid: 73317da70c7029045b9b84a9e9dcaee1,
+        type: 2}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

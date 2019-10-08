@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour {
 
-    public GameObject Sw;
     public GameObject obj;      //親にしたいオブジェクトを入れておく
     public int SwordInitcount;
     public float InitRotation;
@@ -17,17 +16,15 @@ public class Sword : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Sw.SetActive(false);
+        this.gameObject.SetActive(true);
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //transformを取得
-        Transform myTransform = this.transform;
 
         //objを親として設定
-        myTransform.parent = obj.transform;
+        //myTransform.parent = obj.transform;
 
         Vector3 localAngle = obj.transform.localEulerAngles;
 
@@ -40,14 +37,16 @@ public class Sword : MonoBehaviour {
             obj.transform.localEulerAngles = localAngle; // 回転角度を設定
 
 
-            Sw.SetActive(true);
+            this.gameObject.SetActive(true);
             flg = 1;
         }
 
         if (flg == 1 && Swordcount-- <= 0)
         {
-            Sw.SetActive(false);
+            //this.gameObject.SetActive(false);
             flg = 0;
+            localAngle.z = InitRotation; // ローカル座標を基準に、z軸を軸にした回転を10度に変更
+            obj.transform.localEulerAngles = localAngle; // 回転角度を設定
         }
         else if (flg == 1)
         {
