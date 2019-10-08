@@ -31,7 +31,6 @@ public class Sword : MonoBehaviour {
 
         Vector3 localAngle = obj.transform.localEulerAngles;
 
-
         if (Input.GetMouseButtonDown(1) && flg == 0)
         {
             Swordcount = SwordInitcount;
@@ -45,8 +44,6 @@ public class Sword : MonoBehaviour {
             flg = 1;
         }
 
-
-
         if (flg == 1 && Swordcount-- <= 0)
         {
             Sw.SetActive(false);
@@ -57,7 +54,19 @@ public class Sword : MonoBehaviour {
             obj.transform.Rotate(0, 0, -SwordSpeed);
         }
 
-        //transform.position = new Vector2(transform.position.x, Player1.transform.position.y);
-
     }
+
+
+
+
+    void OnTriggerEnter2D(Collider2D Collision)
+    {
+        if (Collision.gameObject.tag == "ENEMY")
+        {
+            Debug.Log("倒した");
+        }
+    }
+
+
 }
+
