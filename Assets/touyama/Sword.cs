@@ -9,7 +9,7 @@ public class Sword : MonoBehaviour {
     public float InitRotation;
     public float SwordSpeed;
 
-    int flg = 0;
+    bool flg = false;
     int Swordcount = 0;
     float rotation_z;
     
@@ -28,7 +28,7 @@ public class Sword : MonoBehaviour {
 
         Vector3 localAngle = obj.transform.localEulerAngles;
 
-        if (Input.GetMouseButtonDown(1) && flg == 0)
+        if (Input.GetMouseButtonDown(1) && flg == false)
         {
             Swordcount = SwordInitcount;
 
@@ -38,17 +38,17 @@ public class Sword : MonoBehaviour {
 
 
             this.gameObject.SetActive(true);
-            flg = 1;
+            flg = true;
         }
 
-        if (flg == 1 && Swordcount-- <= 0)
+        if (flg == true && Swordcount-- <= 0)
         {
             //this.gameObject.SetActive(false);
-            flg = 0;
+            flg = false;
             localAngle.z = InitRotation; // ローカル座標を基準に、z軸を軸にした回転を10度に変更
             obj.transform.localEulerAngles = localAngle; // 回転角度を設定
         }
-        else if (flg == 1)
+        else if (flg == true)
         {
             obj.transform.Rotate(0, 0, -SwordSpeed);
         }
@@ -60,7 +60,7 @@ public class Sword : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D Collision)
     {
-        if (Collision.gameObject.tag == "ENEMY")
+        if (Collision.gameObject.tag == "ENEMY" && flg == true)
         {
             Debug.Log("倒した");
         }
