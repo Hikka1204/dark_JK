@@ -30,5 +30,17 @@ public class ENEMYMOVE : MonoBehaviour
        //pos.z += 0.01f;    // z座標へ0.01加算
 
         myTransform.position = pos;  // 座標を設定
+
+
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("GAMEOVER");
+        }
+    }
+
+
 }
