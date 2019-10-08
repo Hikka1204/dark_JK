@@ -6,8 +6,10 @@ public class BackgroundController : MonoBehaviour
 {
     void Update()
     {
-        float scroll = Mathf.Repeat(Time.time * 0.2f, 1);
-        Vector2 offset = new Vector2(scroll, 0);
-        GetComponent<Renderer>().sharedMaterial.SetTextureOffset("_MainTex", offset);
+        transform.Translate(-0.1f, 0, 0);
+        if (transform.position.x < -16.5f)
+        {
+            transform.position = new Vector3(16.4f, 0, 0);
+        }
     }
 }
