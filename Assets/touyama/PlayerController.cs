@@ -7,13 +7,19 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
     Jump PlayerJump;
-    byte flg = 0;
+    public byte flg = 0;
     Color color;
     public GameObject zombi;
+    GameObject Sword;
 
-	// Use this for initialization
-	void Start () {
+    Sword Sword_script;
+
+    // Use this for initialization
+    void Start () {
         zombi.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        Sword = GameObject.Find("katana");
+        Sword_script = Sword.GetComponent<Sword>();
+
     }
 
     // Update is called once per frame
@@ -21,7 +27,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && flg == 0)
         {
             flg = 1;
-            //print("左ボタンが押されている");
         }
 
         //Debug.Log(flg);
@@ -29,7 +34,8 @@ public class PlayerController : MonoBehaviour {
         switch (flg)
         {
             case 1:
-                if(this.GetComponent<Jump>().PlayerJump() == false)
+                
+                if(GetComponent<Jump>().PlayerJump() == false)
                 {
                     flg = 0;
                 }
@@ -54,8 +60,29 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void SetFlg()
+    public void SetFlg(byte _flg)
     {
-        flg = 2;
+
+        flg = _flg;
     }
+
+    public byte GetFlg()
+    {
+        return flg;
+    }
+
+    void OnTriggerEnter2D(Collider2D Collision)
+    {
+        if (Collision.gameObject.tag == "ENEMY" && Sword_script.flg == false) 
+        {
+            Debug.Log("感染した");
+            SetFlg(2);
+        }
+
+        if (Collision.gameObject.tag == "Obutu" && flg == 0)
+        {
+            Debug.Log("衝突した");
+        }
+    }
+
 }

@@ -20,10 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4730107298208592}
   - component: {fileID: 212803292692545070}
-  - component: {fileID: 114756980567650782}
+  - component: {fileID: 61580318968686762}
+  - component: {fileID: 114846822751653552}
   m_Layer: 0
   m_Name: mon
-  m_TagString: Untagged
+  m_TagString: Obutu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +42,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114756980567650782
+--- !u!61 &61580318968686762
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363863994229834}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.2}
+  m_EdgeRadius: 0
+--- !u!114 &114846822751653552
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -49,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1363863994229834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca66be7e0f1c19249b17b564cef8263c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ef4c4fad3b91d44fb416b4243386825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
