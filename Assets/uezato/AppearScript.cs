@@ -79,4 +79,17 @@ public class AppearScript : MonoBehaviour
         numberOfEnemys++;
         elapsedTime = 0f;
     }
+    public static bool Probability(float fPercent)
+    {
+        float fProbabilityRate = UnityEngine.Random.value * 100.0f;
+
+        if (fProbabilityRate < fPercent)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

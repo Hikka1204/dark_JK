@@ -79,6 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  Sflg: 0
+  particle: {fileID: 1594537581916418, guid: 725613de0de552447b589c0a0099b82e, type: 2}
 --- !u!212 &212921488146224894
 SpriteRenderer:
   m_ObjectHideFlags: 1

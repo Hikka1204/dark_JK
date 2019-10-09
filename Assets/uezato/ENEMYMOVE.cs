@@ -9,6 +9,8 @@ public class ENEMYMOVE : MonoBehaviour
     public float moveSpeed ;
     public int Sflg = 0;
 
+    public GameObject particle;
+
     GameObject haikei; //Unityちゃんそのものが入る変数
     GameObject haikei2; //Unityちゃんそのものが入る変数
     GameObject Player; //Unityちゃんそのものが入る変数
@@ -67,9 +69,11 @@ void OnTriggerEnter2D(Collider2D collision)
         if(collision.gameObject.tag == "Sword")
         {
             Debug.Log("Sword");
+            GameObject insParticle = Instantiate(particle);
+            insParticle.transform.position = this.transform.position;
             Destroy(gameObject, 0.05f); 
         }
     }
 
-
+ 
 }

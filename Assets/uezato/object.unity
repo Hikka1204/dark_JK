@@ -448,6 +448,7 @@ MonoBehaviour:
   SwordInitcount: 13
   InitRotation: 100
   SwordSpeed: 8.8
+  ParticleSystem: {fileID: 0}
   flg: 0
 --- !u!212 &1104105565
 SpriteRenderer:
