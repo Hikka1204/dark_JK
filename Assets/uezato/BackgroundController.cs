@@ -14,7 +14,7 @@ public class BackgroundController : MonoBehaviour
     {
         ENEMY = GameObject.Find("ENEMY"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
         script = ENEMY.GetComponent<ENEMYMOVE>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
-        scroll = -0.05f;
+        scroll = -0.1f;
         Setscroll(scroll);
     }
     
