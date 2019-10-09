@@ -7,19 +7,21 @@ public class GaugeCtrl : MonoBehaviour
     
     public Image ui;
 
+    bool hitflg;
 
     Color[] color;
     public Sprite[] giratina;
-
+    float Gauge;
 
     bool Feverflg;  //フィーバー
     Slider _slider;
    
-    float Gauge = 0;            //ゲージ初期化
+   
 
 
     void Start()
     {
+        Gauge = 0;
         // スライダーを取得する
         _slider = GameObject.Find("Slider").GetComponent<Slider>();
 
@@ -42,13 +44,15 @@ public class GaugeCtrl : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0)&&Feverflg==false)
+        hitflg = Scoretest.Gethitflg();
+        Debug.Log(hitflg);
+        if (Feverflg==false&&hitflg==true)
         {
             // HP上昇
             Gauge += 0.2f;
-            if (Gauge >= 1)
+            if (Gauge>=1)
             {
+         
                 Feverflg = true;
                 ui.GetComponent<Image>().color = color[1];
                 ui.GetComponent<Image>().sprite = giratina[1];
@@ -56,9 +60,9 @@ public class GaugeCtrl : MonoBehaviour
         }
         if (Feverflg == true)
         {
-            
 
-            Gauge -= 0.01f;
+
+            Gauge -= 0.1f;
             if (Gauge <= 0)
             {
                 Feverflg = false;
