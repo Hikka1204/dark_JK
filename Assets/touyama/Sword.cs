@@ -11,7 +11,14 @@ public class Sword : MonoBehaviour {
 
     GameObject Player; 
 
-    PlayerController script; 
+    PlayerController script;
+
+    PlayerController GetFlg;
+
+    Color color;
+
+    public GameObject ParticleSystem;
+
 
     public bool flg = false;
     int Swordcount = 0;
@@ -61,6 +68,13 @@ public class Sword : MonoBehaviour {
             obj.transform.Rotate(0, 0, -SwordSpeed);
         }
 
+        if (transform.root.gameObject.GetComponent<PlayerController>().GetFlg() == 2)
+        {
+            color = this.GetComponent<Renderer>().material.color;
+            color = new Color(color.r, color.g, color.b, 0.0f);
+            GetComponent<Renderer>().material.color = color;
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D Collision)
@@ -68,6 +82,9 @@ public class Sword : MonoBehaviour {
         if (Collision.gameObject.tag == "ENEMY" && flg == true)
         {
             Debug.Log("倒した");
+            float positionX = Collision.transform.position.x;
+            float positionY = Collision.transform.position.y;
+            Instantiate(ParticleSystem, new Vector2(positionX, positionY), Quaternion.identity);
         }
     }
 
