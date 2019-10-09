@@ -10,14 +10,25 @@ public class ENEMYMOVE : MonoBehaviour
     public int Sflg = 0;
 
     GameObject haikei; //Unityちゃんそのものが入る変数
+    GameObject haikei2; //Unityちゃんそのものが入る変数
+    GameObject Player; //Unityちゃんそのものが入る変数
 
     BackgroundController script; //UnityChanScriptが入る変数
+    BackgroundController script2; //UnityChanScriptが入る変数
+    PlayerController Pscript; //
     void Start()
     {
         //GetComponentの処理をキャッシュしておく
         //  rb = GetComponent<Rigidbody2D>();
         haikei= GameObject.Find("haikei"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
         script = haikei.GetComponent<BackgroundController>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
+
+        haikei2 = GameObject.Find("haikei2"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
+        script2 = haikei2.GetComponent<BackgroundController>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
+
+        Player = GameObject.Find("Player"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
+        Pscript = Player.GetComponent<PlayerController>();
+
         Destroy(gameObject, 15f); // 三秒後に削除
         
     }
@@ -48,8 +59,15 @@ void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("GAMEOVER");
-            Sflg = 1;
+            Debug.Log("Playerと当たった");
+            //Destroy(gameObject, 0.5f); // 三秒後に削除
+            script.scroll = 0;
+            script2.scroll = 0;
+        }
+        if(collision.gameObject.tag == "Sword")
+        {
+            Debug.Log("Sword");
+            Destroy(gameObject, 0.05f); 
         }
     }
 
