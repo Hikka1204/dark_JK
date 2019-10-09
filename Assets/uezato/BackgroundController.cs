@@ -23,7 +23,7 @@ public class BackgroundController : MonoBehaviour
         if (script.Sflg == 1)
         {
             Scrollstop();
-        }else if (Tcount++ / 6 == 600)
+        }else if (Tcount++ / 3 == 600)
              {
                 scroll -= 0.1f;
                 Tcount = 0;
@@ -31,7 +31,7 @@ public class BackgroundController : MonoBehaviour
        
         transform.Translate(scroll, 0, 0);
 
-        if (transform.position.x < -20f) //切り替わるタイミング
+        if (transform.position.x < -18.5f) //切り替わるタイミング
         {
             transform.position = new Vector3(18.25f, 0, 0);
         }
