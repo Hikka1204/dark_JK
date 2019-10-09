@@ -30,8 +30,9 @@ public class ObutuMOVE: MonoBehaviour
     // 更新用の関数
     void Update()
     {
-
-
+        
+ 
+       
         moveSpeed = script.scroll;
 
         // transformを取得
@@ -39,11 +40,13 @@ public class ObutuMOVE: MonoBehaviour
 
         // 座標を取得
         Vector2 pos = myTransform.position;
+        Debug.Log(pos.y);
         pos.x += moveSpeed;    // x座標へ0.01加算
                            //pos.y += 0.01f;    // y座標へ0.01加算
                            //pos.z += 0.01f;    // z座標へ0.01加算
 
         myTransform.position = pos;  // 座標を設定
+        transform.position = new Vector2(myTransform.position.x, -1);
 
 
     }
