@@ -53,6 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemys:
   - {fileID: 1425236544428794, guid: e4ec525aabf9bc8498979158434e4d86, type: 2}
-  - {fileID: 1363863994229834, guid: e16e28917840184458ea7488673effed, type: 2}
+  - {fileID: 0}
   appearNextTime: 0
   maxNumOfEnemys: 0
