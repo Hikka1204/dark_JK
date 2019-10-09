@@ -20,13 +20,14 @@ public class BackgroundController : MonoBehaviour
     void Update()
     {
         Debug.Log(script.Sflg);
-        if (script.Sflg == 1) Scrollstop();
-       
-            if (Tcount++ / 6 == 600)
-            {
+        if (script.Sflg == 1)
+        {
+            Scrollstop();
+        }else if (Tcount++ / 6 == 600)
+             {
                 scroll -= 0.1f;
                 Tcount = 0;
-            }
+             }
        
         transform.Translate(scroll, 0, 0);
 
