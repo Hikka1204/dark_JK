@@ -13,7 +13,7 @@ public class Sword : MonoBehaviour {
 
     PlayerController script; 
 
-    bool flg = false;
+    public bool flg = false;
     int Swordcount = 0;
     float rotation_z;
     
@@ -62,9 +62,6 @@ public class Sword : MonoBehaviour {
         }
 
     }
-
-    
-
 
     void OnTriggerEnter2D(Collider2D Collision)
     {
