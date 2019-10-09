@@ -15,17 +15,19 @@ public class BackgroundController : MonoBehaviour
         ENEMY = GameObject.Find("ENEMY"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
         script = ENEMY.GetComponent<ENEMYMOVE>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
         scroll = -0.1f;
+        Setscroll(scroll);
     }
     
     void Update()
     {
-        Debug.Log(script.Sflg);
+       // Debug.Log(script.Sflg);
         if (script.Sflg == 1)
         {
             Scrollstop();
         }else if (Tcount++ / 3 == 600)
              {
-                scroll -= 0.1f;
+                scroll -= 0.05f;
+            Setscroll(scroll);
                 Tcount = 0;
              }
        
@@ -41,5 +43,19 @@ public class BackgroundController : MonoBehaviour
         scroll = 0;
         Debug.Log("GAMEOVER");
     }
+
+    public void Setscroll(float _scroll)
+    {
+
+        scroll = _scroll;
+    }
+
+
+    public float Getscroll()
+    {
+        return scroll;
+    }
+
+
 }
 

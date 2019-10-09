@@ -5,12 +5,18 @@ using System.Collections;
 
 public class ObutuMOVE: MonoBehaviour
 {
+    PlayerController GetFlg;
+
     // Rigidbody2D rb;
     public float moveSpeed ;
     GameObject haikei; //Unityちゃんそのものが入る変数
     BackgroundController script; //UnityChanScriptが入る変数
+
     GameObject haikei2; //Unityちゃんそのものが入る変数
     BackgroundController script2; //UnityChanScriptが入る変数
+
+    GameObject Player; //Unityちゃんそのものが入る変数
+    PlayerController Pscript; //
 
 
 
@@ -21,7 +27,12 @@ public class ObutuMOVE: MonoBehaviour
 
         haikei2 = GameObject.Find("haikei2"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
         script2 = haikei2.GetComponent<BackgroundController>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
-        //GetComponentの処理をキャッシュしておく
+                                                                //GetComponentの処理をキャッシュしておく
+
+        Player = GameObject.Find("Player"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
+        Pscript = Player.GetComponent<PlayerController>();
+
+
         //  rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 15f); // 三秒後に削除
 
@@ -53,6 +64,7 @@ public class ObutuMOVE: MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("おぶつ");

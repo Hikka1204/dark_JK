@@ -880,7 +880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6887fffd424fc4e9fbe77bf895f214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fever: 0
   enemys:
   - {fileID: 1425236544428794, guid: e4ec525aabf9bc8498979158434e4d86, type: 2}
   - {fileID: 1803458863912370, guid: c5ee936bf043d8e4a86f2b6b1036de29, type: 2}
