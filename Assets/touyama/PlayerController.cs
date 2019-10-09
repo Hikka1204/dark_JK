@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
 
                 if(color.a >= 1.0f)
                 {
-                    flg = 0;
+                    flg = 3;
                     
                 }
                 break;
@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour {
         {
             Debug.Log("感染した");
             SetFlg(2);
+            
+
         }
 
         if (Collision.gameObject.tag == "Obutu" && flg == 0)
