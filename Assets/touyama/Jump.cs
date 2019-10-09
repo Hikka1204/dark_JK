@@ -10,14 +10,14 @@ public class Jump : MonoBehaviour {
 
     
 
-    GameObject Player; //Playerそのものが入る変数
+    GameObject Sword_Rotation; //Playerそのものが入る変数
 
-    PlayerController script; //PlayerControllerScriptが入る変数
+    //PlayerController script; //PlayerControllerScriptが入る変数
 
     // Use this for initialization
     void Start () {
-        Player = GameObject.Find("Player");
-        script = Player.GetComponent<PlayerController>();
+        Sword_Rotation = GameObject.Find("Sword_Rotation");
+        //script = Sword_Rotation.GetComponent<Transform>();
     }
 	
 	// Update is called once per frame
@@ -102,10 +102,12 @@ public class Jump : MonoBehaviour {
             JumpCount = 0;
             JumpPower = 0;
             transform.position = new Vector2(transform.position.x, -2.04f);
+            Sword_Rotation.transform.position = new Vector2(Sword_Rotation.transform.position.x, -2.04f);
             return false;
         }
 
         transform.position = new Vector2(transform.position.x, transform.position.y + this.JumpPower);
+        Sword_Rotation.transform.position = new Vector2(Sword_Rotation.transform.position.x, Sword_Rotation.transform.position.y + this.JumpPower);
 
         return true;
     }

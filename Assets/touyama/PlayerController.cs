@@ -10,10 +10,15 @@ public class PlayerController : MonoBehaviour {
     public byte flg = 0;
     Color color;
     public GameObject zombi;
+    GameObject Sword;
+
+    Sword Sword_script;
 
     // Use this for initialization
     void Start () {
         zombi.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+        Sword = GameObject.Find("katana");
+        Sword_script = Sword.GetComponent<Sword>();
     }
 
     // Update is called once per frame
@@ -21,10 +26,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && flg == 0)
         {
             flg = 1;
-        }
-        else if(flg == 0)
-        {
-            transform.position = new Vector2(transform.position.x, -2.04f);
         }
 
         //Debug.Log(flg);
@@ -61,6 +62,19 @@ public class PlayerController : MonoBehaviour {
     public void SetFlg()
     {
         flg = 2;
+    }
+
+    void OnTriggerEnter2D(Collider2D Collision)
+    {
+        if (Collision.gameObject.tag == "ENEMY" && Sword_script.flg == false) 
+        {
+            Debug.Log("感染した");
+            SetFlg();
+        }
+        if (Collision.gameObject.tag == "Obutu")
+        {
+            Debug.Log("衝突した");
+        }
     }
 
 }
