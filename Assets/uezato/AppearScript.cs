@@ -9,7 +9,7 @@ public class AppearScript : MonoBehaviour
     //　出現させる敵を入れておく
     [SerializeField] GameObject[] enemys;
     //　次に敵が出現するまでの時間
-    [SerializeField] float appearNextTime;
+    [SerializeField] float appearNextTime = -0.1f;
     //　この場所から出現する敵の数
     [SerializeField] int maxNumOfEnemys;
     //　今何人の敵を出現させたか（総数）
