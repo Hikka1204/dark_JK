@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
     Jump PlayerJump;
-    byte flg = 0;
+    public byte flg = 0;
     Color color;
     public GameObject zombi;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         zombi.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
     }
 
@@ -21,7 +21,10 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && flg == 0)
         {
             flg = 1;
-            //print("左ボタンが押されている");
+        }
+        else if(flg == 0)
+        {
+            transform.position = new Vector2(transform.position.x, -2.04f);
         }
 
         //Debug.Log(flg);
@@ -29,7 +32,8 @@ public class PlayerController : MonoBehaviour {
         switch (flg)
         {
             case 1:
-                if(this.GetComponent<Jump>().PlayerJump() == false)
+                
+                if(GetComponent<Jump>().PlayerJump() == false)
                 {
                     flg = 0;
                 }
@@ -58,4 +62,5 @@ public class PlayerController : MonoBehaviour {
     {
         flg = 2;
     }
+
 }

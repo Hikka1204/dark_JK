@@ -9,6 +9,10 @@ public class Sword : MonoBehaviour {
     public float InitRotation;
     public float SwordSpeed;
 
+    GameObject Player; 
+
+    PlayerController script; 
+
     bool flg = false;
     int Swordcount = 0;
     float rotation_z;
@@ -16,19 +20,22 @@ public class Sword : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        this.gameObject.SetActive(true);
+        Player = GameObject.Find("Player");
+        script = Player.GetComponent<PlayerController>();
 
+        this.gameObject.SetActive(true);
+        Vector3 localAngle = obj.transform.localEulerAngles;
+        localAngle.z = InitRotation; // ローカル座標を基準に、z軸を軸にした回転をInitRotation度に変更
+        obj.transform.localEulerAngles = localAngle; // 回転角度を設定
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        //objを親として設定
-        //myTransform.parent = obj.transform;
 
         Vector3 localAngle = obj.transform.localEulerAngles;
 
-        if (Input.GetMouseButtonDown(1) && flg == false)
+        if (Input.GetMouseButtonDown(1) && flg == false && script.flg == 0)
         {
             Swordcount = SwordInitcount;
 
@@ -48,6 +55,7 @@ public class Sword : MonoBehaviour {
             localAngle.z = InitRotation; // ローカル座標を基準に、z軸を軸にした回転を10度に変更
             obj.transform.localEulerAngles = localAngle; // 回転角度を設定
         }
+
         else if (flg == true)
         {
             obj.transform.Rotate(0, 0, -SwordSpeed);

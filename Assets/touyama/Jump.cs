@@ -8,12 +8,17 @@ public class Jump : MonoBehaviour {
     float JumpSpeed;
     int JumpCount;
 
+    
 
+    GameObject Player; //Playerそのものが入る変数
+
+    PlayerController script; //PlayerControllerScriptが入る変数
 
     // Use this for initialization
     void Start () {
-        
-	}
+        Player = GameObject.Find("Player");
+        script = Player.GetComponent<PlayerController>();
+    }
 	
 	// Update is called once per frame
 	//void Update () {
@@ -72,22 +77,26 @@ public class Jump : MonoBehaviour {
 
 
  //   }
+
     public bool PlayerJump()
     {
+
         
-        
+
+        float speed = 0.2f;
+
         if (JumpCount++ <= 10)
-            JumpPower = 0.2f;
+            JumpPower = speed;
         else if (JumpCount <= 20)
-            JumpPower = 0.1f;
+            JumpPower = speed / 2;
         else if (JumpCount <= 30)
-            JumpPower = 0.05f;
+            JumpPower = speed / 4;
         else if (JumpCount <= 40)
-            JumpPower = -0.05f;
+            JumpPower = -speed / 4;
         else if (JumpCount <= 50)
-            JumpPower = -0.1f;
+            JumpPower = -speed / 2;
         else if (JumpCount <= 60)
-            JumpPower = -0.2f;
+            JumpPower = -speed;
         else
         {
             JumpCount = 0;
