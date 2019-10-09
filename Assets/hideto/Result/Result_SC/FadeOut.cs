@@ -1,0 +1,75 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class FadeOut : MonoBehaviour {
+
+    // ボタンフラグ
+    bool _changeflg_retry;
+    bool _changeflg_title;
+
+    // 透明度変更スピード
+    float fadespeed = 0.01f;
+    float red, green, blue, alfa;
+
+    // フェードアウトフラグ
+    public bool fadeoutflg = false;
+
+    Image fadeimage;
+
+	// Use this for initialization
+	void Start () {
+        fadeimage = GetComponent<Image>();
+        red = fadeimage.color.r;
+        green = fadeimage.color.g;
+        blue = fadeimage.color.b;
+        alfa = fadeimage.color.a;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        _changeflg_retry = GoToRetry_Button.getChangeFlg_Retry();
+        _changeflg_title = GoToTitle_Button.getChangeFlg_Title();
+
+        if(_changeflg_retry == true)
+        {
+            StartFadeOut();
+        }
+        else if(_changeflg_title == true)
+        {
+            StartFadeOut();
+        }
+	}
+
+    void StartFadeOut()
+    {
+        // パネルの表示をON
+        fadeimage.enabled = true;
+
+        // 不透明度を徐々に上げる
+        alfa += fadespeed;
+
+        // 変更した透明度をパネルに反映
+        SetAlpha();
+
+        // 完全に透明になったら処理を終了
+        if (alfa >= 1)
+        {
+            fadeoutflg = false;
+            if(_changeflg_retry == true)
+            {
+                //SceneManager.LoadScene("ゲームメインのシーンを入れる");
+            }
+            else if(_changeflg_title == true)
+            {
+                //SceneManager.LoadScene("タイトルのシーンを入れる");
+            }
+        }
+    }
+
+    void SetAlpha()
+    {
+        fadeimage.color = new Color(red, green, blue, alfa);
+    }
+}
