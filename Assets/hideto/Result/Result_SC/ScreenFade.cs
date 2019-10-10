@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScreenFadeOut : MonoBehaviour {
+public class ScreenFade : MonoBehaviour {
 
     // ボタンフラグ
     bool _changeflg_retry;
@@ -13,10 +13,9 @@ public class ScreenFadeOut : MonoBehaviour {
     float fadespeed = 0.01f;
     float red, green, blue, alfa;
 
-    // フェードアウトフラグ
-    bool fadeoutflg = false;
-
     Image fadeimage;
+
+    
 
 	// Use this for initialization
 	void Start () {
@@ -56,7 +55,6 @@ public class ScreenFadeOut : MonoBehaviour {
         // 完全に透明になったら処理を終了
         if (alfa >= 1)
         {
-            fadeoutflg = false;
             if(_changeflg_retry == true)
             {
                 //SceneManager.LoadScene("ゲームメインのシーンを入れる");
