@@ -98,7 +98,7 @@ public class ScreenFade : MonoBehaviour {
             else if(_changeflg_title == true)
             {
                 // タイトルへ
-                //SceneManager.LoadScene("Title");
+                SceneManager.LoadScene("Title");
             }
         }
     }
