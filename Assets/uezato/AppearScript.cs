@@ -14,8 +14,8 @@ public class AppearScript : MonoBehaviour
 
     GameObject ENEMY; //Unityちゃんそのものが入る変数
     BackgroundController escript; //UnityChanScriptが入る変数
-
-    public bool Feverflg = false;
+    public bool feverenemy = false;
+    public bool feverflg = false;
     private int fever = 1;
     //　出現させる敵を入れておく
     [SerializeField] GameObject[] enemys;
@@ -50,19 +50,19 @@ public class AppearScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      Feverflg =  Uscript.Feverflg;
+      feverflg =  Uscript.Feverflg;
         
        // Tecount
-        if (Feverflg == false)
+        if (feverflg == false)
         {
-            if (script.Getscroll() == -0.1f || script.Getscroll() == -0.15f)appearNextTime = Random.Range(3f, 7f);
+            if (script.Getscroll() == -0.1f || script.Getscroll() == -0.15f)appearNextTime = Random.Range(3f, 6f);
              if (script.Getscroll() == -0.2f|| script.Getscroll() == -0.25f) appearNextTime = Random.Range(1.5f, 4f);
               if (script.Getscroll() <= -0.3f) appearNextTime = Random.Range(1.5f, 2.5f);
 
 
 
         }
-        else appearNextTime = 0.3f;
+        else appearNextTime = 1f;
 
         //if (elapsedTime == 15f)
         //{
@@ -104,7 +104,7 @@ public class AppearScript : MonoBehaviour
         //{
         //    randomValue = 0;
         //}
-        if (Feverflg == false)
+        if (feverflg == false)
         {
             if (Probability(30))
             {
@@ -120,8 +120,13 @@ public class AppearScript : MonoBehaviour
                 else fever = 3;
             }
             else fever = 0;
+            feverenemy = false;
         }
-        else fever = 0;
+        else
+        {
+            fever = 0;
+            feverenemy = true;
+        }
         Debug.Log(fever);
         GameObject.Instantiate(enemys[fever], transform.position, Quaternion.Euler(0f, 0f, 0f));
 
@@ -144,12 +149,12 @@ public class AppearScript : MonoBehaviour
     public void Setfever(bool _feverflg)
     {
 
-        Feverflg = _feverflg;
+        feverflg = _feverflg;
     }
 
 
     public bool Getfever()
     {
-        return Feverflg ;
+        return feverflg ;
     }
 }
