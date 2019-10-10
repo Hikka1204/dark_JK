@@ -11,7 +11,7 @@ public class AppearScript : MonoBehaviour
     GameObject ENEMY; //Unityちゃんそのものが入る変数
     BackgroundController escript; //UnityChanScriptが入る変数
 
-    private int feverflg = 1;
+    public bool feverflg = false;
     private int fever = 1;
     //　出現させる敵を入れておく
     [SerializeField] GameObject[] enemys;
@@ -43,7 +43,7 @@ public class AppearScript : MonoBehaviour
     void Update()
     {
        // Tecount
-        if (feverflg == 0)
+        if (feverflg == false)
         {
             if (script.Getscroll() == -0.1f || script.Getscroll() == -0.15f)appearNextTime = Random.Range(3f, 7f);
              if (script.Getscroll() == -0.2f|| script.Getscroll() == -0.25f) appearNextTime = Random.Range(1.5f, 4f);
@@ -94,7 +94,7 @@ public class AppearScript : MonoBehaviour
         //{
         //    randomValue = 0;
         //}
-        if (feverflg == 0)
+        if (feverflg == false)
         {
             if (Probability(30))
             {
@@ -130,5 +130,16 @@ public class AppearScript : MonoBehaviour
         {
             return false;
         }
+    }
+    public void Setfever(bool _feverflg)
+    {
+
+        feverflg = _feverflg;
+    }
+
+
+    public bool Getfever()
+    {
+        return feverflg ;
     }
 }

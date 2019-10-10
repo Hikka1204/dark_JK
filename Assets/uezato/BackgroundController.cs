@@ -6,6 +6,7 @@ public class BackgroundController : MonoBehaviour
 {
     public int Tcount;
     public float scroll;
+    public float scroll2 = 0.28f;//ズレの修正
     //GameObject ENEMY; //Unityちゃんそのものが入る変数
 
     //ENEMYMOVE script; //UnityChanScriptが入る変数
@@ -17,22 +18,25 @@ public class BackgroundController : MonoBehaviour
         scroll = -0.1f;
         Setscroll(scroll);
     }
-    
+
     void Update()
     {
-       // Debug.Log(script.Sflg);
-            if (scroll < 0 && Tcount++ / 3 == 600)
-             {
-                scroll -= 0.05f;
+        // Debug.Log(script.Sflg);
+       if (scroll > -0.3f) { 
+        if (scroll < 0 && Tcount++ / 3 == 300)
+        {
+            scroll -= 0.05f;
+            scroll2++;
+            scroll2 = (scroll2 * 0.28f);
             Setscroll(scroll);
-                Tcount = 0;
-             }
-       
+            Tcount = 0;
+        }
+    }
         transform.Translate(scroll, 0, 0);
 
-        if (transform.position.x < -18.5f) //切り替わるタイミング
+        if (transform.position.x < -19f) //切り替わるタイミング
         {
-            transform.position = new Vector3(18.25f, 0, 0);
+            transform.position = new Vector3(19.25f-scroll2, 0, 0);
         }
     }
     public void Scrollstop()

@@ -9,7 +9,8 @@ public class ENEMYMOVE : MonoBehaviour
     public float moveSpeed ;
     public int Sflg = 0;
     public int Tecount = 0;
-
+    public int kill = 0;
+    
     public GameObject particle;
 
     GameObject haikei; //Unityちゃんそのものが入る変数
@@ -75,9 +76,19 @@ void OnTriggerEnter2D(Collider2D collision)
             GameObject insParticle = Instantiate(particle);
             insParticle.transform.position = this.transform.position;
             Destroy(gameObject, 0.05f);
-            Tecount++;
+            kill++;
         }
     }
 
- 
+    public void Setkill(int  _kill)
+    {
+
+        kill = _kill;
+    }
+
+
+    public int  Getkill()
+    {
+        return kill;
+    }
 }
