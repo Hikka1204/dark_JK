@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 public class PlayerController : MonoBehaviour {
 
     Jump PlayerJump;
@@ -11,6 +12,10 @@ public class PlayerController : MonoBehaviour {
     Color color;
     public GameObject zombi;
     GameObject Sword;
+
+    public AudioClip sound1;
+    AudioSource audioSource;
+
 
     Sword Sword_script;
 
@@ -25,6 +30,7 @@ public class PlayerController : MonoBehaviour {
         zombi.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         Sword = GameObject.Find("wrist");
         Sword_script = Sword.GetComponent<Sword>();
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -97,12 +103,11 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D Collision)
     {
-        if (Collision.gameObject.tag == "ENEMY" && Sword_script.flg == false) 
+        if (Collision.gameObject.tag == "ENEMY" && GetComponent<Animator>().GetBool("SwingFlag") == false)
         {
             Debug.Log("感染した");
             SetFlg(2);
-            
-
+            audioSource.PlayOneShot(sound1);
         }
 
         if (Collision.gameObject.tag == "Obutu" && flg == 0)
