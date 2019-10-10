@@ -16,7 +16,7 @@ public class GaugeCtrl : MonoBehaviour
     float Gauge;
     int Score;
 
-    bool Feverflg;  //フィーバー
+    public bool Feverflg;  //フィーバー
     Slider _slider;
    
    

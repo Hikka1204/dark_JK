@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour {
 
+    public AudioClip sound1;
+    AudioSource audioSource;
+
     //public GameObject obj;      //親にしたいオブジェクトを入れておく
     public int SwordInitcount;
     public float InitRotation;
     public float SwordSpeed;
 
 
-    GameObject Player; 
 
     PlayerController script;
 
@@ -23,28 +25,23 @@ public class Sword : MonoBehaviour {
     // スクリーン座標をワールド座標に変換した位置座標
     private Vector3 screenToWorldPointPosition;
 
-    // Use this for initialization
 
     public bool flg = false;
     int Swordcount = 0;
-    float rotation_z;
     
 
 	// Use this for initialization
 	void Start () {
-        Player = GameObject.Find("Player");
-        script = Player.GetComponent<PlayerController>();
+        
+        script = transform.root.GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
 
         this.gameObject.SetActive(true);
-        //Vector3 localAngle = obj.transform.localEulerAngles;
-        //localAngle.z = InitRotation; // ローカル座標を基準に、z軸を軸にした回転をInitRotation度に変更
-        //obj.transform.localEulerAngles = localAngle; // 回転角度を設定
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        //Vector3 localAngle = obj.transform.localEulerAngles;
 
         // Vector3でマウス位置座標を取得する
         mouseposition = Input.mousePosition;
@@ -59,28 +56,23 @@ public class Sword : MonoBehaviour {
         {
             Swordcount = SwordInitcount;
 
+            if (transform.root.gameObject.GetComponent<Animator>().GetBool("SwingFlag") == false)
+            {
+                audioSource.PlayOneShot(sound1);
+            }
+
             transform.root.gameObject.GetComponent<CallAnimation>().CallSwingSwordAnim();
 
-            // ローカル座標を基準に、回転を取得
-            //localAngle.z = InitRotation; // ローカル座標を基準に、z軸を軸にした回転を10度に変更
-            //obj.transform.localEulerAngles = localAngle; // 回転角度を設定
-
-
-            //this.gameObject.SetActive(true);
             flg = true;
+
+            //transform.root.gameObject.GetComponent<CallAnimation>().CallSwingSwordAnim();
+            //GetComponent<Animator>().GetBool("SwingFlag") == false
+            
         }
 
         if (flg == true && Swordcount-- <= 0)
         {
-            //this.gameObject.SetActive(false);
             flg = false;
-            //localAngle.z = InitRotation; // ローカル座標を基準に、z軸を軸にした回転を10度に変更
-            //obj.transform.localEulerAngles = localAngle; // 回転角度を設定
-        }
-
-        else if (flg == true)
-        {
-            //obj.transform.Rotate(0, 0, -SwordSpeed);
         }
 
         if (transform.root.gameObject.GetComponent<PlayerController>().GetFlg() == 2)

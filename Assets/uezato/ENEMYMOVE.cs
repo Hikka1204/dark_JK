@@ -16,10 +16,14 @@ public class ENEMYMOVE : MonoBehaviour
     GameObject haikei; //Unityちゃんそのものが入る変数
     GameObject haikei2; //Unityちゃんそのものが入る変数
     GameObject Player; //Unityちゃんそのものが入る変数
+    GameObject gage; //Unityちゃんそのものが入る変数
     public BackgroundController BackGround;
 
     BackgroundController script; //UnityChanScriptが入る変数
     BackgroundController script2; //UnityChanScriptが入る変数
+    GaugeCtrl Uscript; //UnityChanScriptが入る変数
+
+
     //PlayerController Pscript; //
     void Start()
     {
@@ -30,6 +34,9 @@ public class ENEMYMOVE : MonoBehaviour
 
         haikei2 = GameObject.Find("haikei2"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
         script2 = haikei2.GetComponent<BackgroundController>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
+
+        gage = GameObject.Find("GaugeCtrl"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
+        Uscript = gage.GetComponent<GaugeCtrl>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納
 
         //Player = GameObject.Find("Player_v1.5"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
         //Pscript = Player.GetComponent<PlayerController>();
@@ -77,6 +84,7 @@ void OnTriggerEnter2D(Collider2D collision)
             insParticle.transform.position = this.transform.position;
             Destroy(gameObject, 0.05f);
             kill++;
+            Uscript.ScoreCtrl();
         }
     }
 
