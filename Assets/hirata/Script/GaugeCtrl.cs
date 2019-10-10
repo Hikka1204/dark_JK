@@ -10,7 +10,7 @@ public class GaugeCtrl : MonoBehaviour
     bool hitflg;
 
     Color[] color;
-    public Sprite[] giratina;
+    public Sprite[] GaugeImage;
     float Gauge;
 
     bool Feverflg;  //フィーバー
@@ -23,11 +23,11 @@ public class GaugeCtrl : MonoBehaviour
     {
         Gauge = 0;
         // スライダーを取得する
-        _slider = GameObject.Find("Slider").GetComponent<Slider>();
+        //_slider = GameObject.Find("Slider").GetComponent<Slider>();
 
        
 
-        ui.GetComponent<Image>().sprite = giratina[0];
+        ui.GetComponent<Image>().sprite = GaugeImage[0];
         
 
         Feverflg = false;           //フィーバーフラグ
@@ -44,7 +44,7 @@ public class GaugeCtrl : MonoBehaviour
 
     void Update()
     {
-        hitflg = Scoretest.Gethitflg();
+        hitflg = EnemyScore.Gethitflg();
         Debug.Log(hitflg);
         if (Feverflg==false&&hitflg==true)
         {
@@ -55,19 +55,19 @@ public class GaugeCtrl : MonoBehaviour
          
                 Feverflg = true;
                 ui.GetComponent<Image>().color = color[1];
-                ui.GetComponent<Image>().sprite = giratina[1];
+                ui.GetComponent<Image>().sprite = GaugeImage[1];
             }
         }
         if (Feverflg == true)
         {
 
 
-            Gauge -= 0.1f;
+            Gauge -= 0.05f;
             if (Gauge <= 0)
             {
                 Feverflg = false;
                 ui.GetComponent<Image>().color = color[0];
-                ui.GetComponent<Image>().sprite = giratina[0];
+                ui.GetComponent<Image>().sprite = GaugeImage[0];
             }
         }
 

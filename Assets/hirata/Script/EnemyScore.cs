@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scoretest : MonoBehaviour
+public class EnemyScore : MonoBehaviour
 {
 
     public static bool hitflg;
