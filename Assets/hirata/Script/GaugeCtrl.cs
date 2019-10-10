@@ -7,25 +7,27 @@ public class GaugeCtrl : MonoBehaviour
     
     public Image ui;
 
+    bool hitflg;
 
     Color[] color;
-    public Sprite[] giratina;
-
+    public Sprite[] GaugeImage;
+    float Gauge;
 
     bool Feverflg;  //フィーバー
     Slider _slider;
    
-    float Gauge = 0;            //ゲージ初期化
+   
 
 
     void Start()
     {
+        Gauge = 0;
         // スライダーを取得する
-        _slider = GameObject.Find("Slider").GetComponent<Slider>();
+        //_slider = GameObject.Find("Slider").GetComponent<Slider>();
 
        
 
-        ui.GetComponent<Image>().sprite = giratina[0];
+        ui.GetComponent<Image>().sprite = GaugeImage[0];
         
 
         Feverflg = false;           //フィーバーフラグ
@@ -42,28 +44,30 @@ public class GaugeCtrl : MonoBehaviour
 
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0)&&Feverflg==false)
+        hitflg = EnemyScore.Gethitflg();
+        Debug.Log(hitflg);
+        if (Feverflg==false&&hitflg==true)
         {
             // HP上昇
             Gauge += 0.2f;
-            if (Gauge >= 1)
+            if (Gauge>=1)
             {
+         
                 Feverflg = true;
                 ui.GetComponent<Image>().color = color[1];
-                ui.GetComponent<Image>().sprite = giratina[1];
+                ui.GetComponent<Image>().sprite = GaugeImage[1];
             }
         }
         if (Feverflg == true)
         {
-            
 
-            Gauge -= 0.01f;
+
+            Gauge -= 0.05f;
             if (Gauge <= 0)
             {
                 Feverflg = false;
                 ui.GetComponent<Image>().color = color[0];
-                ui.GetComponent<Image>().sprite = giratina[0];
+                ui.GetComponent<Image>().sprite = GaugeImage[0];
             }
         }
 
