@@ -15,17 +15,26 @@ public class Load : MonoBehaviour {
         if(Input.GetMouseButtonDown(0))
         {
             LoadingUi.SetActive(true);
-            //StartCoroutine(LoadScene());
+            StartCoroutine(LoadScene());
         }
     }
-    //IEnumerator LoadScene()
-    //{
-    //    async = SceneManager.LoadSceneAsync("");  // シーンを移動
+    IEnumerator LoadScene()
+    {
+        async = SceneManager.LoadSceneAsync("Main");  // シーンを移動
+        async.allowSceneActivation = false;
 
-    //    while (!async.isDone)
-    //    {
-    //        Slider.value = async.progress;
-    //        yield return null;
-    //    }
-    //}
+        float time = 0;
+
+        while (!async.isDone)
+        {
+            Slider.value = async.progress;
+            time += Time.deltaTime;
+            yield return null;
+
+            if(Slider.value >= 0.9f && time > 2.0f)
+            {
+                async.allowSceneActivation = true;
+            }
+        }
+    }
 }

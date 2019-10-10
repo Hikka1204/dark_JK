@@ -93,7 +93,7 @@ public class ScreenFade : MonoBehaviour {
             if(_changeflg_retry == true)
             {
                 //ゲームメインへ
-                //SceneManager.LoadScene("Main");
+                SceneManager.LoadScene("Main");
             }
             else if(_changeflg_title == true)
             {

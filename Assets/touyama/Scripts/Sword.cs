@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sword : MonoBehaviour {
 
@@ -60,6 +61,7 @@ public class Sword : MonoBehaviour {
             {
                 audioSource.PlayOneShot(sound1);
             }
+            GameObject.Find("Text2").GetComponent<Text>().text = transform.root.gameObject.GetComponent<CallAnimation>().ToString();
 
             transform.root.gameObject.GetComponent<CallAnimation>().CallSwingSwordAnim();
 

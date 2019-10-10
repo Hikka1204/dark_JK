@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -105,18 +106,33 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D Collision)
     {
+        GameObject.Find("Text").GetComponent<Text>().text = "109";
+        GameObject.Find("Text2").GetComponent<Text>().text = GetComponent<Animator>().GetBool("SwingFlag").ToString();
+
         if (Collision.gameObject.tag == "ENEMY" && GetComponent<Animator>().GetBool("SwingFlag") == false)
         {
+            GameObject.Find("Text").GetComponent<Text>().text = "114";
             Debug.Log("感染した");
             SetFlg(2);
+            GameObject.Find("Text").GetComponent<Text>().text = "115";
             audioSource.PlayOneShot(sound1);
+
+            StartCoroutine("SceneMove");
         }
 
         if (Collision.gameObject.tag == "Obutu" && flg == 0)
         {
             Debug.Log("衝突した");
             GetComponent<CallAnimation>().GameOverFlagSet();
+            StartCoroutine("SceneMove");
         }
+    }
+
+    IEnumerator SceneMove()
+    {
+        yield return new WaitForSeconds(1.0f);
+        GameObject.Find("Text").GetComponent<Text>().text = "130";
+        SceneManager.LoadScene("Result");
     }
 
 }
