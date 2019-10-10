@@ -1041,7 +1041,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 0.96666664
+  - time: 0.98333335
     functionName: SwingFlag
     data: 
     objectReferenceParameter: {fileID: 0}
