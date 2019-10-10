@@ -9,14 +9,20 @@ public class ImageBox : MonoBehaviour {
 
     // ハイスコア判定フラグ
     bool _highscoreflg;
+
+    // スコアのフェードインフラグ回収変数
+    bool _scorefadeinflg;
 	
 	// Update is called once per frame
 	void Update () {
-        _highscoreflg = HighScore.getPasshighScoreFlg();
+        _highscoreflg = HighScore.getPassHighScoreFlg();
+        _scorefadeinflg = TextFadeIn.getScoreFadeInFlg();
+
+        Debug.Log(_scorefadeinflg);
 
         // 画像判定処理
         // false➡ハイスコア更新無し true➡ハイスコア更新
-        if(_highscoreflg == true)
+        if(_highscoreflg == true && _scorefadeinflg == true)
         {
             image_highscore.SetActive(true);
         }

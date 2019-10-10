@@ -8,6 +8,7 @@ public class ENEMYMOVE : MonoBehaviour
    // Rigidbody2D rb;
     public float moveSpeed ;
     public int Sflg = 0;
+    public int Tecount = 0;
 
     public GameObject particle;
 
@@ -73,7 +74,8 @@ void OnTriggerEnter2D(Collider2D collision)
             Debug.Log("Sword");
             GameObject insParticle = Instantiate(particle);
             insParticle.transform.position = this.transform.position;
-            Destroy(gameObject, 0.05f); 
+            Destroy(gameObject, 0.05f);
+            Tecount++;
         }
     }
 
