@@ -7,11 +7,14 @@ public class GaugeCtrl : MonoBehaviour
     
     public Image ui;
 
-    bool hitflg;
+    
 
     Color[] color;
     public Sprite[] GaugeImage;
+
+    
     float Gauge;
+    int Score;
 
     bool Feverflg;  //フィーバー
     Slider _slider;
@@ -40,25 +43,30 @@ public class GaugeCtrl : MonoBehaviour
 
     
 
-
-
-    void Update()
+    public void ScoreCtrl()
     {
-        hitflg = EnemyScore.Gethitflg();
-        
-        if (Feverflg==false&&hitflg==true)
+
+        if(Feverflg==false)//フィーバーではないとき
         {
-            // HP上昇
             Gauge += 0.2f;
-            Debug.Log(hitflg);
-            if (Gauge>=1)
+            if (Gauge >= 1)
             {
-         
+
                 Feverflg = true;
                 ui.GetComponent<Image>().color = color[0];
                 ui.GetComponent<Image>().sprite = GaugeImage[1];
             }
+             ui.GetComponent<Image>().fillAmount = Gauge;
         }
+      Score += 500;
+
+    }
+
+    void Update()
+    {
+      
+        
+        
         if (Feverflg == true)
         {
 
@@ -70,10 +78,11 @@ public class GaugeCtrl : MonoBehaviour
                 ui.GetComponent<Image>().color = color[0];
                 ui.GetComponent<Image>().sprite = GaugeImage[0];
             }
+            ui.GetComponent<Image>().fillAmount = Gauge;
         }
 
-        // HPゲージに値を設定
-        ui.GetComponent<Image>().fillAmount = Gauge;
+      
+       
 
     }
 }
