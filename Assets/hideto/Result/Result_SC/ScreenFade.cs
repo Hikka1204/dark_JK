@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class ScreenFadeOut : MonoBehaviour {
+public class ScreenFade : MonoBehaviour {
+
+    public AudioSource background_GBM;
+    public AudioSource background_SE;
 
     // ボタンフラグ
     bool _changeflg_retry;
@@ -13,10 +17,9 @@ public class ScreenFadeOut : MonoBehaviour {
     float fadespeed = 0.01f;
     float red, green, blue, alfa;
 
-    // フェードアウトフラグ
-    bool fadeoutflg = false;
-
     Image fadeimage;
+
+    bool fadeinflg;
 
 	// Use this for initialization
 	void Start () {
@@ -25,12 +28,25 @@ public class ScreenFadeOut : MonoBehaviour {
         green = fadeimage.color.g;
         blue = fadeimage.color.b;
         alfa = fadeimage.color.a;
+
+        fadeinflg = true;
+        fadeimage.enabled = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         _changeflg_retry = GoToRetry_Button.getChangeFlg_Retry();
         _changeflg_title = GoToTitle_Button.getChangeFlg_Title();
+
+        if(fadeinflg == true)
+        {
+            StartFadeIn();
+        }
+
+        if(_changeflg_retry || _changeflg_title)
+        {
+            background_SE.PlayOneShot(background_SE.clip);
+        }
 
         if(_changeflg_retry == true)
         {
@@ -42,8 +58,26 @@ public class ScreenFadeOut : MonoBehaviour {
         }
 	}
 
+    void StartFadeIn()
+    {
+        // 不透明度を徐々に下げる
+        alfa -= fadespeed;
+
+        // 変更した透明度を反映
+        SetAlpha();
+
+        // 完全に見えるようになったら終了
+        if(alfa <= 0)
+        {
+            fadeinflg = false;
+            fadeimage.enabled = false;
+        }
+    }
+
     void StartFadeOut()
     {
+        background_GBM.Stop();
+
         // パネルの表示をON
         fadeimage.enabled = true;
 
@@ -56,14 +90,15 @@ public class ScreenFadeOut : MonoBehaviour {
         // 完全に透明になったら処理を終了
         if (alfa >= 1)
         {
-            fadeoutflg = false;
             if(_changeflg_retry == true)
             {
-                //SceneManager.LoadScene("ゲームメインのシーンを入れる");
+                //ゲームメインへ
+                //SceneManager.LoadScene("Main");
             }
             else if(_changeflg_title == true)
             {
-                //SceneManager.LoadScene("タイトルのシーンを入れる");
+                // タイトルへ
+                //SceneManager.LoadScene("Title");
             }
         }
     }

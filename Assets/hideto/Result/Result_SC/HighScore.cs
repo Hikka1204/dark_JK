@@ -14,6 +14,9 @@ public class HighScore : MonoBehaviour {
     public GameObject highscore_object = null;
     public int highscore = 0;
 
+    // ハイスコア達成時の画像表示時間
+    float highscoreimagetime = 3.0f;
+
 	// Use this for initialization
 	void Start () {
         // ハイスコアの判定をfalse
@@ -40,8 +43,8 @@ public class HighScore : MonoBehaviour {
 
 
     void HighScoreComparison() {
-        // スコアとハイスコアの比較
-        if (__nowscore > highscore)
+        // スコアとハイスコアの比較 (今回のスコアの方が多いなら更新,少ないなら変更なし)
+        if (__nowscore == highscore)
         {
             // ハイスコアを更新
             highscore = __nowscore;
@@ -52,8 +55,9 @@ public class HighScore : MonoBehaviour {
 
             // ハイスコアのフラグをtrue
             highscoreflg = true;
+
             // ここに関数を入れる
-            // getPassHighScoreFlg();
+            //getPassHighScoreFlg();
         }
 
         // オブジェクトからTextコンポーネントを取得
@@ -63,7 +67,7 @@ public class HighScore : MonoBehaviour {
         highscore_text.text = "HIGHSCORE：" + highscore;
     }
 
-    public static bool getPasshighScoreFlg()
+    public static bool getPassHighScoreFlg()
     {
         return highscoreflg;
     }
