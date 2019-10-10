@@ -328,7 +328,7 @@ SpriteRenderer:
   m_Size: {x: 19.22, y: 12.02}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &456845528
 Transform:
@@ -579,7 +579,7 @@ SpriteRenderer:
   m_Size: {x: 19.22, y: 12.02}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &964550593
 Transform:
@@ -696,7 +696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdb79f76835510439b56ac2df4bc769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombi: {fileID: 0}
 --- !u!61 &1174950521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -755,6 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flg: 0
   zombi: {fileID: 686344780}
+  sound1: {fileID: 0}
 --- !u!1 &1189054012
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +801,101 @@ GameObject:
   m_PrefabParentObject: {fileID: 1480946085245348, guid: db3cebff0870a754fb38c86514b1457a,
     type: 2}
   m_PrefabInternal: {fileID: 230790075}
+--- !u!82 &1250457705
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1250457704}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1250457709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,6 +909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flg: 0
   zombi: {fileID: 686344780}
+  sound1: {fileID: 8300000, guid: 164301ee481d58a44881614c31ce72fc, type: 3}
 --- !u!114 &1250457710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +1013,101 @@ GameObject:
   m_PrefabParentObject: {fileID: 1337269593783272, guid: db3cebff0870a754fb38c86514b1457a,
     type: 2}
   m_PrefabInternal: {fileID: 230790075}
+--- !u!82 &1401341084
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1401341082}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1401341085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,7 +1119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e13a80c0f69f3e4d966ca69a52a7178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwordInitcount: 30
+  sound1: {fileID: 8300000, guid: 57da93ec41dfe6c47bfd96c974cbc254, type: 3}
+  SwordInitcount: 0
   InitRotation: 0
   SwordSpeed: 0
   flg: 0
@@ -1125,6 +1317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e13a80c0f69f3e4d966ca69a52a7178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound1: {fileID: 0}
   SwordInitcount: 13
   InitRotation: 100
   SwordSpeed: 8.8
