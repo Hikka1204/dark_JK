@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeOut : MonoBehaviour {
+public class ScreenFadeOut : MonoBehaviour {
 
     // ボタンフラグ
     bool _changeflg_retry;
@@ -14,7 +14,7 @@ public class FadeOut : MonoBehaviour {
     float red, green, blue, alfa;
 
     // フェードアウトフラグ
-    public bool fadeoutflg = false;
+    bool fadeoutflg = false;
 
     Image fadeimage;
 
