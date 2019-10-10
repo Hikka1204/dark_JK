@@ -9,13 +9,16 @@ public class ENEMYMOVE : MonoBehaviour
     public float moveSpeed ;
     public int Sflg = 0;
 
+    public GameObject particle;
+
     GameObject haikei; //Unityちゃんそのものが入る変数
     GameObject haikei2; //Unityちゃんそのものが入る変数
     GameObject Player; //Unityちゃんそのものが入る変数
+    public BackgroundController BackGround;
 
     BackgroundController script; //UnityChanScriptが入る変数
     BackgroundController script2; //UnityChanScriptが入る変数
-    PlayerController Pscript; //
+    //PlayerController Pscript; //
     void Start()
     {
         //GetComponentの処理をキャッシュしておく
@@ -26,8 +29,8 @@ public class ENEMYMOVE : MonoBehaviour
         haikei2 = GameObject.Find("haikei2"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
         script2 = haikei2.GetComponent<BackgroundController>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
 
-        Player = GameObject.Find("Player"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
-        Pscript = Player.GetComponent<PlayerController>();
+        //Player = GameObject.Find("Player_v1.5"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
+        //Pscript = Player.GetComponent<PlayerController>();
 
         Destroy(gameObject, 15f); // 三秒後に削除
         
@@ -63,13 +66,16 @@ void OnTriggerEnter2D(Collider2D collision)
             //Destroy(gameObject, 0.5f); // 三秒後に削除
             script.scroll = 0;
             script2.scroll = 0;
+            GameObject.Find("haikei").gameObject.GetComponent<BackgroundController>().Scrollstop();
         }
         if(collision.gameObject.tag == "Sword")
         {
             Debug.Log("Sword");
+            GameObject insParticle = Instantiate(particle);
+            insParticle.transform.position = this.transform.position;
             Destroy(gameObject, 0.05f); 
         }
     }
 
-
+ 
 }

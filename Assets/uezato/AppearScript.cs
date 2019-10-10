@@ -5,7 +5,7 @@ using System.Collections;
 
 public class AppearScript : MonoBehaviour
 {
-    public int fever = 1;
+    private int fever = 1;
     //　出現させる敵を入れておく
     [SerializeField] GameObject[] enemys;
     //　次に敵が出現するまでの時間
@@ -65,18 +65,38 @@ public class AppearScript : MonoBehaviour
     void AppearEnemy()
     {
         //　出現させる敵をランダムに選ぶ
-        var randomValue = Random.Range(0, enemys.Length);
+        // var randomValue = Random.Range(0, enemys.Length);
         //　敵の向きをランダムに決定
         //var randomRotationY = Random.value * 360f;
-        
+
         //if(fever == 1)
         //{
         //    randomValue = 0;
         //}
+        if (Probability(30))
+        {
+            //30％の確率で起こるイベント
 
-        GameObject.Instantiate(enemys[randomValue], transform.position, Quaternion.Euler(0f, 0f, 0f));
+            fever = 1;
+        }
+        else fever = 0;
+        Debug.Log(fever);
+        GameObject.Instantiate(enemys[fever], transform.position, Quaternion.Euler(0f, 0f, 0f));
 
         numberOfEnemys++;
         elapsedTime = 0f;
+    }
+    public static bool Probability(float fPercent)
+    {
+        float fProbabilityRate = UnityEngine.Random.value * 100.0f;
+
+        if (fProbabilityRate < fPercent)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

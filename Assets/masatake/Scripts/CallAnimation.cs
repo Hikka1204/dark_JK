@@ -8,29 +8,30 @@ public class CallAnimation : MonoBehaviour {
 
     private void Start()
     {
-        PlayerAnimator = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            CallSwingSwordAnim();
-        }
+    //private void Update()
+    //{
+    //    if(Input.GetMouseButtonDown(0))
+    //    {
+    //        CallSwingSwordAnim();
+    //    }
 
-        Debug.Log(PlayerAnimator.GetBool("SwingFlag"));
-    }
+    //    Debug.Log(PlayerAnimator.GetBool("SwingFlag"));
+    //}
 
     // 剣を振るアニメーションを再生
     public void CallSwingSwordAnim()
     {
         //PlayerAnimator.Play("SwingSword");
+        PlayerAnimator = GetComponent<Animator>();
         PlayerAnimator.SetBool("SwingFlag", true);
     }
 
     // SwingFlagをfalseにセット
     public void SwingFlag()
     {
+        PlayerAnimator = GetComponent<Animator>();
         PlayerAnimator.SetBool("SwingFlag", false);
     }
 

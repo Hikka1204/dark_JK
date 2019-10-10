@@ -17,7 +17,6 @@ public class Sword : MonoBehaviour {
 
     Color color;
 
-    public GameObject ParticleSystem;
 
 
     public bool flg = false;
@@ -82,9 +81,6 @@ public class Sword : MonoBehaviour {
         if (Collision.gameObject.tag == "ENEMY" && flg == true)
         {
             Debug.Log("倒した");
-            float positionX = Collision.transform.position.x;
-            float positionY = Collision.transform.position.y;
-            Instantiate(ParticleSystem, new Vector2(positionX, positionY), Quaternion.identity);
         }
     }
 
