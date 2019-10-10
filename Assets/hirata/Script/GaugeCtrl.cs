@@ -45,16 +45,17 @@ public class GaugeCtrl : MonoBehaviour
     void Update()
     {
         hitflg = EnemyScore.Gethitflg();
-        Debug.Log(hitflg);
+        
         if (Feverflg==false&&hitflg==true)
         {
             // HP上昇
             Gauge += 0.2f;
+            Debug.Log(hitflg);
             if (Gauge>=1)
             {
          
                 Feverflg = true;
-                ui.GetComponent<Image>().color = color[1];
+                ui.GetComponent<Image>().color = color[0];
                 ui.GetComponent<Image>().sprite = GaugeImage[1];
             }
         }

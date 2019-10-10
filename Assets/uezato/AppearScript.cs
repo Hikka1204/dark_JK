@@ -5,6 +5,13 @@ using System.Collections;
 
 public class AppearScript : MonoBehaviour
 {
+    GameObject haikei; //Unityちゃんそのものが入る変数
+    BackgroundController script; //UnityChanScriptが入る変数
+
+    GameObject ENEMY; //Unityちゃんそのものが入る変数
+    BackgroundController escript; //UnityChanScriptが入る変数
+
+    private int feverflg = 1;
     private int fever = 1;
     //　出現させる敵を入れておく
     [SerializeField] GameObject[] enemys;
@@ -22,20 +29,34 @@ public class AppearScript : MonoBehaviour
     {
         numberOfEnemys = 0;
         elapsedTime = 0f;
-       // Destroy(gameObject, 10f); // 三秒後に削除
+        // Destroy(gameObject, 10f); // 三秒後に削除
+
+        haikei = GameObject.Find("haikei"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
+        script = haikei.GetComponent<BackgroundController>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
 
 
+       // ENEMY = GameObject.Find("ENEMY"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
+        //escript = ENEMY.GetComponent<ENEMYMOVE>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
     }
-
+    
     // Update is called once per frame
     void Update()
     {
+       // Tecount
+        if (feverflg == 0)
+        {
+            if (script.Getscroll() == -0.1f || script.Getscroll() == -0.15f)appearNextTime = Random.Range(3f, 7f);
+             if (script.Getscroll() == -0.2f|| script.Getscroll() == -0.25f) appearNextTime = Random.Range(1.5f, 4f);
+              if (script.Getscroll() <= -0.3f) appearNextTime = Random.Range(1.5f, 2.5f);
 
-        appearNextTime = Random.Range(3f, 15f);
 
-    //if (elapsedTime == 15f)
-    //{
-    //    numberOfEnemys--;
+
+        }
+        else appearNextTime = 0.3f;
+
+        //if (elapsedTime == 15f)
+        //{
+        //    numberOfEnemys--;
 
         //}
 
@@ -73,11 +94,22 @@ public class AppearScript : MonoBehaviour
         //{
         //    randomValue = 0;
         //}
-        if (Probability(30))
+        if (feverflg == 0)
         {
-            //30％の確率で起こるイベント
-
-            fever = 1;
+            if (Probability(30))
+            {
+                if (Probability(30))
+                {
+                    //30％の確率で起こるイベント
+                    fever = 1;
+                }
+                else if (Probability(30))
+                {
+                    fever = 2;
+                }
+                else fever = 3;
+            }
+            else fever = 0;
         }
         else fever = 0;
         Debug.Log(fever);

@@ -14,19 +14,36 @@ public class PlayerController : MonoBehaviour {
 
     Sword Sword_script;
 
+    // 位置座標
+    private Vector3 mouseposition;
+    // スクリーン座標をワールド座標に変換した位置座標
+    private Vector3 screenToWorldPointPosition;
+
+
     // Use this for initialization
     void Start () {
         zombi.GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-        Sword = GameObject.Find("katana");
+        Sword = GameObject.Find("wrist");
         Sword_script = Sword.GetComponent<Sword>();
 
     }
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetMouseButtonDown(0) && flg == 0)
+
+        // Vector3でマウス位置座標を取得する
+        mouseposition = Input.mousePosition;
+        // Z軸修正
+        mouseposition.z = 0.0f;
+        // マウス位置座標をスクリーン座標からワールド座標に変換する
+        screenToWorldPointPosition = Camera.main.ScreenToWorldPoint(mouseposition);
+
+
+        if (Input.GetMouseButtonDown(0) && screenToWorldPointPosition.x < 0 && flg == 0 )
         {
             flg = 1;
+            //GetComponent<Animator>().enabled = false;
+            
         }
 
         //Debug.Log(flg);
@@ -38,6 +55,7 @@ public class PlayerController : MonoBehaviour {
                 if(GetComponent<Jump>().PlayerJump() == false)
                 {
                     flg = 0;
+                    GetComponent<Animator>().enabled = true;
                 }
                 break;
 
@@ -46,6 +64,12 @@ public class PlayerController : MonoBehaviour {
                 color = GetComponent<Renderer>().material.color;
                 color = new Color(color.r, color.g, color.b, color.a - 0.05f);
                 GetComponent<Renderer>().material.color = color;
+                
+                for(int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).GetComponent<Renderer>().material.color = color;
+                }
+
                 color = zombi.GetComponent<Renderer>().material.color;
                 color = new Color(color.r, color.g, color.b, color.a + 0.05f);
                 zombi.GetComponent<Renderer>().material.color = color;
