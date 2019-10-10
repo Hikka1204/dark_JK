@@ -74,13 +74,18 @@ public class ENEMYMOVE : MonoBehaviour
 
 void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        GameObject player = GameObject.Find("Player");
+
+        if (collision.gameObject.tag == "Player" && !player.GetComponent<Animator>().GetBool("SwingFlag"))
         {
             Debug.Log("Playerと当たった");
             //Destroy(gameObject, 0.5f); // 三秒後に削除
             script.scroll = 0;
             script2.scroll = 0;
             GameObject.Find("haikei").gameObject.GetComponent<BackgroundController>().Scrollstop();
+
+            player.GetComponent<PlayerController>().SetFlg(2);
+            player.GetComponent<PlayerController>().StartCoroutine("SceneMove");
         }
         if(collision.gameObject.tag == "Sword")
         {

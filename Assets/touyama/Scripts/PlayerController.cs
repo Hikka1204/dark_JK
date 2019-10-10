@@ -110,10 +110,10 @@ public class PlayerController : MonoBehaviour {
         if (Collision.gameObject.tag == "ENEMY" && GetComponent<Animator>().GetBool("SwingFlag") == false)
         {
             Debug.Log("感染した");
-            SetFlg(2);
+            //SetFlg(2);
             audioSource.PlayOneShot(sound1);
 
-            StartCoroutine("SceneMove");
+            //StartCoroutine("SceneMove");
         }
 
         if (Collision.gameObject.tag == "Obutu" && flg == 0)
