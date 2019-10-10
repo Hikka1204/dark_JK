@@ -44,7 +44,7 @@ public class HighScore : MonoBehaviour {
 
     void HighScoreComparison() {
         // スコアとハイスコアの比較 (今回のスコアの方が多いなら更新,少ないなら変更なし)
-        if (__nowscore == highscore)
+        if (__nowscore > highscore)
         {
             // ハイスコアを更新
             highscore = __nowscore;
