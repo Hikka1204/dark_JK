@@ -8,10 +8,14 @@ public class AppearScript : MonoBehaviour
     GameObject haikei; //Unityちゃんそのものが入る変数
     BackgroundController script; //UnityChanScriptが入る変数
 
+    GameObject gage; //Unityちゃんそのものが入る変数
+    GaugeCtrl Uscript; //UnityChanScriptが入る変数
+
+
     GameObject ENEMY; //Unityちゃんそのものが入る変数
     BackgroundController escript; //UnityChanScriptが入る変数
 
-    private int feverflg = 1;
+    public bool Feverflg = false;
     private int fever = 1;
     //　出現させる敵を入れておく
     [SerializeField] GameObject[] enemys;
@@ -35,15 +39,21 @@ public class AppearScript : MonoBehaviour
         script = haikei.GetComponent<BackgroundController>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
 
 
-       // ENEMY = GameObject.Find("ENEMY"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
+        // ENEMY = GameObject.Find("ENEMY"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
         //escript = ENEMY.GetComponent<ENEMYMOVE>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納する
+
+        gage = GameObject.Find("GaugeCtrl"); //Unityちゃんをオブジェクトの名前から取得して変数に格納する
+        Uscript = gage.GetComponent<GaugeCtrl>(); //unitychanの中にあるUnityChanScriptを取得して変数に格納
+
     }
     
     // Update is called once per frame
     void Update()
     {
+      Feverflg =  Uscript.Feverflg;
+        
        // Tecount
-        if (feverflg == 0)
+        if (Feverflg == false)
         {
             if (script.Getscroll() == -0.1f || script.Getscroll() == -0.15f)appearNextTime = Random.Range(3f, 7f);
              if (script.Getscroll() == -0.2f|| script.Getscroll() == -0.25f) appearNextTime = Random.Range(1.5f, 4f);
@@ -94,7 +104,7 @@ public class AppearScript : MonoBehaviour
         //{
         //    randomValue = 0;
         //}
-        if (feverflg == 0)
+        if (Feverflg == false)
         {
             if (Probability(30))
             {
@@ -130,5 +140,16 @@ public class AppearScript : MonoBehaviour
         {
             return false;
         }
+    }
+    public void Setfever(bool _feverflg)
+    {
+
+        Feverflg = _feverflg;
+    }
+
+
+    public bool Getfever()
+    {
+        return Feverflg ;
     }
 }
