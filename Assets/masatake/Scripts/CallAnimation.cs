@@ -26,8 +26,6 @@ public class CallAnimation : MonoBehaviour {
     // 剣を振るアニメーションを再生
     public void CallSwingSwordAnim()
     {
-        GameObject.Find("Text").GetComponent<Text>().text = "30";
-
         // 剣のエフェクトを生成
         Image swordeffect = Instantiate(SwordEffectPre);
         swordeffect.transform.SetParent(canvas.transform, false);

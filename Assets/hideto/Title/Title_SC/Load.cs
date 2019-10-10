@@ -12,7 +12,7 @@ public class Load : MonoBehaviour {
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !LoadingUi.activeSelf)
         {
             LoadingUi.SetActive(true);
             StartCoroutine(LoadScene());

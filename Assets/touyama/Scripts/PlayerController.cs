@@ -106,15 +106,11 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D Collision)
     {
-        GameObject.Find("Text").GetComponent<Text>().text = "109";
-        GameObject.Find("Text2").GetComponent<Text>().text = GetComponent<Animator>().GetBool("SwingFlag").ToString();
 
         if (Collision.gameObject.tag == "ENEMY" && GetComponent<Animator>().GetBool("SwingFlag") == false)
         {
-            GameObject.Find("Text").GetComponent<Text>().text = "114";
             Debug.Log("感染した");
             SetFlg(2);
-            GameObject.Find("Text").GetComponent<Text>().text = "115";
             audioSource.PlayOneShot(sound1);
 
             StartCoroutine("SceneMove");
@@ -131,7 +127,6 @@ public class PlayerController : MonoBehaviour {
     IEnumerator SceneMove()
     {
         yield return new WaitForSeconds(1.0f);
-        GameObject.Find("Text").GetComponent<Text>().text = "130";
         SceneManager.LoadScene("Result");
     }
 

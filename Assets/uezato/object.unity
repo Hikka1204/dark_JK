@@ -297,8 +297,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225.7, y: 122.2}
-  m_SizeDelta: {x: 138.7, y: 100}
+  m_AnchoredPosition: {x: -281, y: 150}
+  m_SizeDelta: {x: 170, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &489511979
 MonoBehaviour:
@@ -365,7 +365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 291.4, y: 158.1}
+  m_AnchoredPosition: {x: 231.29, y: 208.94}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686993900
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8773585, g: 0.053800307, b: 0.053800307, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -389,16 +389,16 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 56
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: s
 --- !u!222 &686993901
@@ -626,6 +626,16 @@ Prefab:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114853660290517572, guid: db3cebff0870a754fb38c86514b1457a,
+        type: 2}
+      propertyPath: SwordEffectPre
+      value: 
+      objectReference: {fileID: 489511979}
+    - target: {fileID: 114853660290517572, guid: db3cebff0870a754fb38c86514b1457a,
+        type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1025024414}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db3cebff0870a754fb38c86514b1457a, type: 2}
   m_IsPrefabParent: 0
@@ -909,7 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1563,7 +1573,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6887fffd424fc4e9fbe77bf895f214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feverflg: 0
+  feverenemy: 0
+  feverflg: 1
   enemys:
   - {fileID: 1540655845414848, guid: a2b040bb331ba3c488a5bb8511f3e529, type: 2}
   - {fileID: 1803458863912370, guid: c5ee936bf043d8e4a86f2b6b1036de29, type: 2}
@@ -1612,9 +1623,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 489511979}
+  score_object: {fileID: 686993898}
   GaugeImage:
   - {fileID: 21300000, guid: 6504861af5bdd2d4ca1dd5fb22e9e2c0, type: 3}
   - {fileID: 21300000, guid: 6504861af5bdd2d4ca1dd5fb22e9e2c0, type: 3}
+  Tcount: 0
+  Score: 0
+  Feverflg: 0
 --- !u!4 &1779356954
 Transform:
   m_ObjectHideFlags: 0
@@ -1741,3 +1756,44 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1927248206}
+--- !u!1 &2111300231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2111300233}
+  - component: {fileID: 2111300232}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2111300232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2111300231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375ba75f85c0fcb4aab14ccf8b10672a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score_object: {fileID: 686993898}
+--- !u!4 &2111300233
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2111300231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 489, y: 134, z: -0.6875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
