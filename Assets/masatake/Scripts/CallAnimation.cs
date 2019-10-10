@@ -60,4 +60,10 @@ public class CallAnimation : MonoBehaviour {
         }
     }
 
+    // ゲームオーバー処理へ
+    public void GameOverFlagSet()
+    {
+        PlayerAnimator = GetComponent<Animator>();
+        PlayerAnimator.SetBool("GameOverFlag", true);
+    }
 }

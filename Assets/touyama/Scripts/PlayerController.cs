@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 
     Sword Sword_script;
 
+    public Renderer[] PlayerPearts;
+
     // 位置座標
     private Vector3 mouseposition;
     // スクリーン座標をワールド座標に変換した位置座標
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && screenToWorldPointPosition.x < 0 && flg == 0 )
         {
             flg = 1;
-            //GetComponent<Animator>().enabled = false;
+            GetComponent<Animator>().enabled = false;
             
         }
 
@@ -71,9 +73,9 @@ public class PlayerController : MonoBehaviour {
                 color = new Color(color.r, color.g, color.b, color.a - 0.05f);
                 GetComponent<Renderer>().material.color = color;
                 
-                for(int i = 0; i < transform.childCount; i++)
+                for(int i = 0; i < 10; i++)
                 {
-                    transform.GetChild(i).GetComponent<Renderer>().material.color = color;
+                    PlayerPearts[i].GetComponent<Renderer>().material.color = color;
                 }
 
                 color = zombi.GetComponent<Renderer>().material.color;
@@ -113,6 +115,7 @@ public class PlayerController : MonoBehaviour {
         if (Collision.gameObject.tag == "Obutu" && flg == 0)
         {
             Debug.Log("衝突した");
+            GetComponent<CallAnimation>().GameOverFlagSet();
         }
     }
 

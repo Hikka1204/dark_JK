@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e13a80c0f69f3e4d966ca69a52a7178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound1: {fileID: 0}
   SwordInitcount: 30
   InitRotation: 0
   SwordSpeed: 0
@@ -376,6 +377,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!212 &374518217 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212731456937874356, guid: 874f902afbedc924a807ff0540e4abd0,
+    type: 2}
+  m_PrefabInternal: {fileID: 761286353}
 --- !u!1 &537773356
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +506,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flg: 0
   zombi: {fileID: 46235264}
-  Sword_script: {fileID: 321124112}
+  sound1: {fileID: 0}
+  PlayerPearts:
+  - {fileID: 1168650163}
+  - {fileID: 696317621}
+  - {fileID: 875287119}
+  - {fileID: 2141346158}
+  - {fileID: 852895033}
+  - {fileID: 374518217}
+  - {fileID: 1039132034}
+  - {fileID: 537773358}
+  - {fileID: 1016739199}
+  - {fileID: 321124114}
 --- !u!61 &599946835
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -646,6 +663,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &696317621 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212607889768161090, guid: 874f902afbedc924a807ff0540e4abd0,
+    type: 2}
+  m_PrefabInternal: {fileID: 761286353}
 --- !u!1 &698077568
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,6 +805,10 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1158649844453170, guid: 874f902afbedc924a807ff0540e4abd0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95658010409535216, guid: 874f902afbedc924a807ff0540e4abd0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 874f902afbedc924a807ff0540e4abd0, type: 2}
@@ -876,6 +902,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &852895033 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212835293520720674, guid: 874f902afbedc924a807ff0540e4abd0,
+    type: 2}
+  m_PrefabInternal: {fileID: 761286353}
+--- !u!212 &875287119 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212787359486092334, guid: 874f902afbedc924a807ff0540e4abd0,
+    type: 2}
+  m_PrefabInternal: {fileID: 761286353}
 --- !u!1 &938828396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,6 +1158,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!212 &1039132034 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212533241736161508, guid: 874f902afbedc924a807ff0540e4abd0,
+    type: 2}
+  m_PrefabInternal: {fileID: 761286353}
 --- !u!1 &1075163843
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1231,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1075163843}
+--- !u!212 &1168650163 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212134174956045768, guid: 874f902afbedc924a807ff0540e4abd0,
+    type: 2}
+  m_PrefabInternal: {fileID: 761286353}
 --- !u!1 &1184878596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,6 +1267,7 @@ MonoBehaviour:
   GaugeImage:
   - {fileID: 21300000, guid: 6504861af5bdd2d4ca1dd5fb22e9e2c0, type: 3}
   - {fileID: 21300000, guid: 6504861af5bdd2d4ca1dd5fb22e9e2c0, type: 3}
+  Feverflg: 0
 --- !u!4 &1184878598
 Transform:
   m_ObjectHideFlags: 0
@@ -1330,7 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6887fffd424fc4e9fbe77bf895f214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  feverflg: 0
+  Feverflg: 0
   enemys:
   - {fileID: 1540655845414848, guid: a2b040bb331ba3c488a5bb8511f3e529, type: 2}
   - {fileID: 1803458863912370, guid: c5ee936bf043d8e4a86f2b6b1036de29, type: 2}
@@ -1636,3 +1683,8 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!212 &2141346158 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212682000120227326, guid: 874f902afbedc924a807ff0540e4abd0,
+    type: 2}
+  m_PrefabInternal: {fileID: 761286353}

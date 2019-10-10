@@ -17,7 +17,7 @@ public class SwordEffectController : MonoBehaviour {
 	void Update () {
         if (fillAmount < 1.0f)
         {
-            fillAmount += 0.05f;
+            fillAmount += 0.03f;
             GetComponent<Image>().fillAmount = fillAmount;
         }
         else if (alpha > 0)
