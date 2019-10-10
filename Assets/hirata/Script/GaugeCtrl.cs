@@ -6,15 +6,17 @@ public class GaugeCtrl : MonoBehaviour
 {
     
     public Image ui;
-
     
+
+    public GameObject score_object = null; // Textオブジェクト
 
     Color[] color;
     public Sprite[] GaugeImage;
 
-    
+    public float Tcount;
+
     float Gauge;
-    int Score;
+    public int Score;
 
     public bool Feverflg;  //フィーバー
     Slider _slider;
@@ -29,7 +31,6 @@ public class GaugeCtrl : MonoBehaviour
         //_slider = GameObject.Find("Slider").GetComponent<Slider>();
 
        
-
         ui.GetComponent<Image>().sprite = GaugeImage[0];
         
 
@@ -48,10 +49,11 @@ public class GaugeCtrl : MonoBehaviour
 
         if(Feverflg==false)//フィーバーではないとき
         {
-            Gauge += 0.2f;
-            if (Gauge >= 1)
+            Debug.Log(Gauge);
+            Gauge += 0.1f;
+            if (Gauge >= 1.0f)
             {
-
+                Debug.Log(Gauge);
                 Feverflg = true;
                 ui.GetComponent<Image>().color = color[0];
                 ui.GetComponent<Image>().sprite = GaugeImage[1];
@@ -64,19 +66,29 @@ public class GaugeCtrl : MonoBehaviour
 
     void Update()
     {
-      
-        
-        
+
+        ui.GetComponent<Image>().fillAmount = Gauge;
+        Debug.Log(Feverflg);
+        // オブジェクトからTextコンポーネントを取得
+        Text score_text = score_object.GetComponent<Text>();
+        // テキストの表示を入れ替える
+        score_text.text = "Score"+Score;
+
         if (Feverflg == true)
         {
+            Gauge -= 0.005f;
 
-
-            Gauge -= 0.05f;
+            //if (Tcount++ / 30 == 1) { 
+            //         Gauge -= 0.15f;
+            //        Tcount = 0;
+            //     }
             if (Gauge <= 0)
             {
                 Feverflg = false;
                 ui.GetComponent<Image>().color = color[0];
                 ui.GetComponent<Image>().sprite = GaugeImage[0];
+                Gauge = 0;
+                
             }
             ui.GetComponent<Image>().fillAmount = Gauge;
         }
@@ -85,4 +97,8 @@ public class GaugeCtrl : MonoBehaviour
        
 
     }
+    //public  int GetScore()
+    //{
+    //    return Score;
+    //}
 }
