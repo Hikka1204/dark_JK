@@ -21,7 +21,7 @@ public class BackgroundController : MonoBehaviour
     void Update()
     {
        // Debug.Log(script.Sflg);
-            if (scroll > 0 && Tcount++ / 3 == 600)
+            if (scroll < 0 && Tcount++ / 3 == 600)
              {
                 scroll -= 0.05f;
             Setscroll(scroll);
