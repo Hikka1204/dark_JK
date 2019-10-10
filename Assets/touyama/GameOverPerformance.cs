@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class test4 : MonoBehaviour {
-
+public class GameOverPerformance : MonoBehaviour {
+    public Image zombi;
 	// Use this for initialization
 	void Start () {
 		
