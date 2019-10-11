@@ -68,8 +68,8 @@ public class ObutuMOVE: MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("おぶつ");
-            script.scroll = 0;
-            script2.scroll = 0;
+            //script.scroll = 0;
+            //script2.scroll = 0;
         }
     }
 

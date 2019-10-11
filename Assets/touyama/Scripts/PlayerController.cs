@@ -118,6 +118,8 @@ public class PlayerController : MonoBehaviour {
 
         if (Collision.gameObject.tag == "Obutu" && flg == 0)
         {
+            GameObject.Find("haikei").GetComponent<BackgroundController>().Setscroll(0);
+            GameObject.Find("haikei2").GetComponent<BackgroundController>().Setscroll(0);
             Debug.Log("衝突した");
             GetComponent<CallAnimation>().GameOverFlagSet();
             StartCoroutine("SceneMove");
