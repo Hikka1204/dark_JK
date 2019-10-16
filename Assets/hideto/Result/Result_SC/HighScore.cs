@@ -22,8 +22,11 @@ public class HighScore : MonoBehaviour {
         // ハイスコアの判定をfalse
         highscoreflg = false;
 
-        // 他のスクリプトの変数の値を取得
-        //__nowscore = ;
+        // 現在のスコアのロード
+        if (PlayerPrefs.HasKey("NOWSCORE"))
+            __nowscore = PlayerPrefs.GetInt("NOWSCORE");
+        else
+            Debug.Log("スコア取得失敗");
 
         // ハイスコアのロード
         highscore = PlayerPrefs.GetInt("HIGHSCORE", 0);

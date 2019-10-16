@@ -128,6 +128,9 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator SceneMove()
     {
+        int score = GameObject.Find("GaugeCtrl").GetComponent<GaugeCtrl>().GetScore();
+        yield return null;
+        PlayerPrefs.SetInt("NOWSCORE", score);
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene("Result");
     }

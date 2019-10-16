@@ -39,10 +39,12 @@ public class GaugeCtrl : MonoBehaviour
         color[0] = ui.GetComponent<Image>().color;
         color[1] = new Color(0.8396f, 0f, 0f);
 
+        // オブジェクトからTextコンポーネントを取得
+        score_object.GetComponent<Text>().text = "Score : 0";
 
     }
 
-    
+
 
     public void ScoreCtrl()
     {
@@ -60,7 +62,14 @@ public class GaugeCtrl : MonoBehaviour
             }
              ui.GetComponent<Image>().fillAmount = Gauge;
         }
-      Score += 500;
+        Score += 500;
+
+        // オブジェクトからTextコンポーネントを取得
+        Text score_text = score_object.GetComponent<Text>();
+
+        // テキストの表示を入れ替える
+        score_text.text = "Score : " + Score;
+
 
     }
 
@@ -69,10 +78,6 @@ public class GaugeCtrl : MonoBehaviour
 
         ui.GetComponent<Image>().fillAmount = Gauge;
         Debug.Log(Feverflg);
-        // オブジェクトからTextコンポーネントを取得
-        Text score_text = score_object.GetComponent<Text>();
-        // テキストの表示を入れ替える
-        score_text.text = "Score"+Score;
 
         if (Feverflg == true)
         {
@@ -93,12 +98,13 @@ public class GaugeCtrl : MonoBehaviour
             ui.GetComponent<Image>().fillAmount = Gauge;
         }
 
-      
-       
+
+
 
     }
-    //public  int GetScore()
-    //{
-    //    return Score;
-    //}
+
+    public int GetScore()
+    {
+        return Score;
+    }
 }
