@@ -14,7 +14,7 @@ public class NowScore_Text : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // 他のスクリプトの変数から値を取得
-        _nowscore = PlayerPrefs.GetInt("NOWSCORE");
+        // _nowscore =  ;
 
         // スコア表示関数
         ShowScore();
