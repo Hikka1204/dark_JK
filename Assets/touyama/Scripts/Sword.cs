@@ -66,9 +66,9 @@ public class Sword : MonoBehaviour {
 
             flg = true;
 
-            //transform.root.gameObject.GetComponent<CallAnimation>().CallSwingSwordAnim();
-            //GetComponent<Animator>().GetBool("SwingFlag") == false
-            
+            transform.root.gameObject.GetComponent<CallAnimation>().CallSwingSwordAnim();
+
+
         }
 
         if (flg == true && Swordcount-- <= 0)

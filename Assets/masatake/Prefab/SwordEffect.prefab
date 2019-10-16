@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224778537838039880}
   - component: {fileID: 222002366705535772}
   - component: {fileID: 114431510032517270}
-  - component: {fileID: 114986195765803582}
+  - component: {fileID: 114570574871217786}
   m_Layer: 5
   m_Name: SwordEffect
   m_TagString: Untagged
@@ -56,7 +56,7 @@ MonoBehaviour:
   m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114986195765803582
+--- !u!114 &114570574871217786
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1582413222123398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4960f7f277c75ed41bfea19f2098ffac, type: 3}
+  m_Script: {fileID: 11500000, guid: c3de3e351182a5641b665caa03ef40b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!222 &222002366705535772
