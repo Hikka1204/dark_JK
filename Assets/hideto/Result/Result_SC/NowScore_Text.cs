@@ -14,7 +14,10 @@ public class NowScore_Text : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // 他のスクリプトの変数から値を取得
-        // _nowscore =  ;
+        if (PlayerPrefs.HasKey("NOWSCORE"))
+        {
+            _nowscore = PlayerPrefs.GetInt("NOWSCORE");
+        }
 
         // スコア表示関数
         ShowScore();
